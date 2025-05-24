@@ -84,5 +84,10 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById('confirmDeleteAddressBtn').setAttribute('href', url);
     $('#deleteAddressConfirmationModal').modal('show');
   }
+
+   function confirmDeleteAddress2(url) {
+    document.getElementById('confirmDeleteAddressBtn2').setAttribute('href', url);
+    $('#deleteAddressConfirmationModal2').modal('show');
+  }
 </script>
 

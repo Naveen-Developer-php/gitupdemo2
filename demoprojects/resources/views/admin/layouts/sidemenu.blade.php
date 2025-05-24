@@ -65,7 +65,7 @@
                         </div>
                     </li>
 
-                    <!-- <li class="menu-item">
+                    <li class="menu-item">
                         <a href="#menuuExpagesa" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
                             <span class="menu-icon"><i class="mdi mdi-file-cloud-outline"></i></span>
                             <span class="menu-text"> Bishop </span>
@@ -77,19 +77,19 @@
                                 
                                 
                                 <li class="menu-item">
-                                    <a href="bishops-profile.html" class="menu-link">
+                                    <a href="{{route('bishop_profile')}}" class="menu-link">
                                         <span class="menu-text"> Bishop's Profile</span>
                                     </a>
                                 </li>
-                                <li class="menu-item">
+                                <!-- <li class="menu-item">
                                     <a href="bishop-engagement.html" class="menu-link">
                                         <span class="menu-text"> Bishop's Engagements</span>
                                     </a>
-                                </li>
+                                </li> -->
                                 
                             </ul>
                         </div>
-                    </li> -->
+                    </li>
 
                     <li class="menu-item">
                         <a href="#menuuExpagess" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
@@ -173,7 +173,7 @@
                         </div>
                     </li>
 
-                    <!-- <li class="menu-item">
+                    <li class="menu-item">
                         <a href="#menuuExpagesf" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
                             <span class="menu-icon"><i class="mdi mdi-file-cloud-outline"></i></span>
                             <span class="menu-text">Priests</span>
@@ -185,7 +185,7 @@
                                 
                                 
                                 <li class="menu-item">
-                                    <a href="priest-profile.html" class="menu-link">
+                                    <a href="{{route('priest_profile')}}" class="menu-link">
                                         <span class="menu-text">Priests Profile</span>
                                     </a>
                                 </li>
@@ -197,9 +197,9 @@
 
                             </ul>
                         </div>
-                    </li> -->
+                    </li>
 
-                    <!-- <li class="menu-item">
+                    <li class="menu-item">
                         <a href="#menuuExpagesg" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
                             <span class="menu-icon"><i class="mdi mdi-file-cloud-outline"></i></span>
                             <span class="menu-text">Diocesan Priests</span>
@@ -211,17 +211,17 @@
                                 
                                 
                                 <li class="menu-item">
-                                    <a href="parish-priests.html" class="menu-link">
+                                    <a href="{{route('parish_priest')}}" class="menu-link">
                                         <span class="menu-text">Parish Priests</span>
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="retired-priests.html" class="menu-link">
+                                    <a href="{{route('reteried_priest')}}" class="menu-link">
                                         <span class="menu-text">Retired Priests</span>
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="obituary.html" class="menu-link">
+                                    <a href="{{route('obituary')}}" class="menu-link">
                                         <span class="menu-text">Obituary</span>
                                     </a>
                                 </li>
@@ -278,12 +278,12 @@
                                 
                                 
                                 <li class="menu-item">
-                                    <a href="diocesan-cura.html" class="menu-link">
+                                    <a href="{{route('diocesan_curia')}}" class="menu-link">
                                         <span class="menu-text">Diocesan Curia</span>
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="college-of-consulators.html" class="menu-link">
+                                    <a href="{{route('college_consulators')}}" class="menu-link">
                                         <span class="menu-text">College Of Consulators</span>
                                     </a>
                                 </li>
@@ -293,7 +293,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="finance-committee.html" class="menu-link">
+                                    <a href="{{route('finance_committe')}}" class="menu-link">
                                         <span class="menu-text">Finance Committee</span>
                                     </a>
                                 </li>
@@ -314,12 +314,12 @@
                                 
                                 
                                 <li class="menu-item">
-                                    <a href="pastoral-commissions.html" class="menu-link">
+                                    <a href="{{route('pastoral_commission')}}" class="menu-link">
                                         <span class="menu-text">Pastoral Commissions</span>
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="diocesan-society.html" class="menu-link">
+                                    <a href="{{route('diocesan_society')}}" class="menu-link">
                                         <span class="menu-text">Diocesan Society</span>
                                     </a>
                                 </li>
@@ -329,7 +329,7 @@
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="educational-committee.html" class="menu-link">
+                                    <a href="{{route('educational_committe')}}" class="menu-link">
                                         <span class="menu-text">Educational Committee</span>
                                     </a>
                                 </li>
@@ -355,7 +355,7 @@
                                 
                                 
                                 <li class="menu-item">
-                                    <a href="social-service.html" class="menu-link">
+                                    <a href="{{route('social_service')}}" class="menu-link">
                                         <span class="menu-text">Social Service</span>
                                     </a>
                                 </li>
@@ -370,7 +370,7 @@
                         </div>
                     </li>
 
-                    <li class="menu-item">
+                    <!-- <li class="menu-item">
                         <a href="#menuuExpagesz" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
                             <span class="menu-icon"><i class="mdi mdi-file-cloud-outline"></i></span>
                             <span class="menu-text">Schools</span>
@@ -422,9 +422,9 @@
 
                             </ul>
                         </div>
-                    </li>
+                    </li> -->
 
-                    <li class="menu-item">
+                    <!-- <li class="menu-item">
                         <a href="#menuuExpagesc" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
                             <span class="menu-icon"><i class="mdi mdi-file-cloud-outline"></i></span>
                             <span class="menu-text">Charitable</span>
@@ -463,21 +463,15 @@
                             <span class="menu-text"> Transfer List</span>
                             
                         </a>
-                    </li>
+                    </li> -->
                      <li class="menu-item">
-                        <a href="news-events.html"class="menu-link waves-effect waves-light">
+                        <a href="{{route('event')}}"class="menu-link waves-effect waves-light">
                             <span class="menu-icon"><i class="mdi mdi-basketball-hoop"></i></span>
                             <span class="menu-text"> News & Events</span>
                             
                         </a>
                     </li>
-                    <li class="menu-item ">
-                        <a href="parish-and-priests.html"class="menu-link waves-effect waves-light">
-                            <span class="menu-icon"><i class="mdi mdi-file-cloud-outline"></i></span>
-                            <span class="menu-text"> Parish & Priests</span>
-                            
-                        </a>
-                    </li>
+                 
                      
                     <li class="menu-item">
                         <a href="#menuExpaages" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
@@ -488,38 +482,31 @@
                         <div class="collapse" id="menuExpaages">
                             <ul class="sub-menu">
                                 <li class="menu-item">
-                                    <a href="logo.html" class="menu-link">
+                                    <a href="{{route('logo')}}" class="menu-link">
                                         <span class="menu-text">Logo</span>
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="home-banner.html" class="menu-link">
+                                    <a href="{{route('banner')}}" class="menu-link">
                                         <span class="menu-text">Banner</span>
                                     </a>
                                 </li>
                                 
                                 <li class="menu-item">
-                                    <a href="privacy-policy.html" class="menu-link">
+                                    <a href="{{route('privacy')}}" class="menu-link">
                                         <span class="menu-text">Privacy Policy</span>
                                     </a>
                                 </li>
                                
                                 <li class="menu-item">
-                                    <a href="terms&condition.html" class="menu-link">
+                                    <a href="{{route('terms')}}" class="menu-link">
                                         <span class="menu-text">Terms & Conditions</span>
                                     </a>
                                 </li>
 
                             </ul>
                         </div>
-                    </li> -->
-                     <!-- <li class="menu-item">
-                        <a href="login.html"class="menu-link waves-effect waves-light">
-                            <span class="menu-icon"><i class="mdi mdi-script-text"></i></span>
-                            <span class="menu-text">Log Out</span>
-                            
-                        </a>
-                    </li> -->
+                    </li>
                 </ul>
             </div>
         </div>

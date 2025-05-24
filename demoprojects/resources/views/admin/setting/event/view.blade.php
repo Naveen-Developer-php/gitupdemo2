@@ -28,13 +28,13 @@
                         <div class="py-3 py-lg-4">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <h4 class="page-title mb-0">About</h4>
+                                    <h4 class="page-title mb-0">Event</h4>
                                 </div>
                                 <div class="col-lg-6">
                                    <div class="d-none d-lg-block">
                                     <ol class="breadcrumb m-0 float-end">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
-                                        <li class="breadcrumb-item active">About</li>
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Edit</a></li>
+                                        <li class="breadcrumb-item active">Event</li>
                                     </ol>
                                    </div>
                                 </div>
@@ -49,49 +49,44 @@
                                 <div class="card">
                                     <div class="card-body">
                                        
-                                        <form action="{{route('update_about',$about->id)}}" method="post" enctype="multipart/form-data">
+                                        <form action="{{route('update_event',$data->id)}}" method="post" enctype="multipart/form-data">
                                             @csrf
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="form-floating mb-3">
-                                                        <input type="text" class="form-control" name="name" value="{{$about->name}}">
-                                                        <label for="floatingemailInput"> Name</label>
+                                                        <input type="text" class="form-control" name="title" value="{{$data->title}}">
+                                                        <label for="floatingemailInput"> Title</label>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-floating mb-3">
-                                                        <input type="text" class="form-control" name="position" value="{{$about->position}}">
-                                                        <label for="floatingemailInput">Position</label>
-                                                    </div>
+                                                      @error('title')
+                                                        <div style="color:red;">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
 
                                             <div class="form-floating mb-2">
-                                                <textarea class="form-control" name="address" style="height: 100px">{{$about->address}}</textarea>
-                                                <label for="floatingTextarea">Address</label>
+                                                <textarea class="form-control" name="short_description" style="height: 100px">{{$data->short_description}}</textarea>
+                                                <label for="floatingTextarea">Short Description</label>
+                                                  @error('short_description')
+                                                        <div style="color:red;">{{ $message }}</div>
+                                                    @enderror
                                               </div>
 
-                                              <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-floating mb-3">
-                                                        <input type="number" class="form-control" name="phone" value="{{$about->phone}}">
-                                                        <label for="floatingemailInput"> Tel:</label>
-                                                    </div>
-                                                      @error('phone')
-                                                            <div style="color:red;">{{ $message }}</div>
-                                                        @enderror
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-floating mb-3">
-                                                        <input type="email" class="form-control" name="email" value="{{$about->email}}">
-                                                        <label for="floatingemailInput">E-mail:</label>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <div class="col-12">
+                                                <div class="card">
+                                                      <label for="floatingTextarea">Description</label>
+                                                    <div class="card-body">
+                                                        
+                                                        <div id="snow-editor" style="height: 300px;">
+                                                        
+                                                        </div> <!-- end Snow-editor-->
+                                                        <input type="hidden" name="description" id="hidden-description1">
+                                                    </div> <!-- end card-body-->
+                                                </div> <!-- end card-->
+                                            </div><!-- end col -->      
 
                                             <div class="col-6">
                                <div class="brd">
-                               <h4 style="margin-top: 10px; text-align: center;"> Upload Product image<br><span style="color:#9B0000; font-size: 13px; text-align: center;">(size:400px*400px)(Max Size 1024MB) </span></h4>
+                               <h4 style="margin-top: 10px; text-align: center;"> Upload Event image<br><span style="color:#9B0000; font-size: 13px; text-align: center;">(size:400px*400px)(Max Size 1024MB) </span></h4>
                                <div class="upload__box">
                                <div class="upload__btn-box">
                                    <label class="upload__btn">
@@ -102,8 +97,8 @@
                                <div class="upload__img-wrap"></div>
                               </div>
                             </div>
-                              @if($about->image)
-                                 <img src="{{asset($about->image)}}" alt="" class="flex-shrink-0 me-12 radius-8" width="30%" height="30%" style="margin-left:110%;margin-top:-39%">
+                               @if($data->image)
+                                 <img src="{{asset($data->image)}}" alt="" class="flex-shrink-0 me-12 radius-8" width="30%" height="30%" style="margin-left:110%;margin-top:-39%">
                               @endif
                                @error('image')
                                     <div style="color:red;">{{ $message }}</div>
@@ -139,6 +134,36 @@
 
         <!-- App js -->
         @include('admin.layouts.script')
-        
+            <script>
+    // Editor 1
+    var quill1 = new Quill('#snow-editor', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                [{ 'font': [] }],
+                [{ 'size': ['small', false, 'large', 'huge'] }],
+                ['bold', 'italic', 'underline', 'strike'],
+                [{ 'color': [] }, { 'background': [] }],
+                [{ 'script': 'sub' }, { 'script': 'super' }],
+                [{ 'header': 1 }, { 'header': 2 }],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                [{ 'indent': '-1' }, { 'indent': '+1' }],
+                [{ 'direction': 'rtl' }],
+                [{ 'align': [] }],
+                ['link', 'image', 'video', 'code-block'],
+                ['clean']
+            ]
+        }
+    });
+
+
+    // Set old values if available
+     quill1.root.innerHTML = `{!! $data->description !!}`;
+    // Handle both editors on form submit
+    document.querySelector('form').onsubmit = function () {
+        document.querySelector('#hidden-description1').value = quill1.root.innerHTML;
+    };
+</script>
     </body>
 </html>
+

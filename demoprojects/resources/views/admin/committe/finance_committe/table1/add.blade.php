@@ -28,13 +28,13 @@
                         <div class="py-3 py-lg-4">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <h4 class="page-title mb-0">About</h4>
+                                    <h4 class="page-title mb-0">Finance Committe Table1</h4>
                                 </div>
                                 <div class="col-lg-6">
                                    <div class="d-none d-lg-block">
                                     <ol class="breadcrumb m-0 float-end">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
-                                        <li class="breadcrumb-item active">About</li>
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Add</a></li>
+                                        <li class="breadcrumb-item active">Finance Committe Table1</li>
                                     </ol>
                                    </div>
                                 </div>
@@ -49,43 +49,46 @@
                                 <div class="card">
                                     <div class="card-body">
                                        
-                                        <form action="{{route('update_about',$about->id)}}" method="post" enctype="multipart/form-data">
+                                        <form action="{{route('save_finance_committe_table1')}}" method="post" enctype="multipart/form-data">
                                             @csrf
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
-                                                        <input type="text" class="form-control" name="name" value="{{$about->name}}">
+                                                        <input type="text" class="form-control" name="name" value="{{old('name')}}">
                                                         <label for="floatingemailInput"> Name</label>
                                                     </div>
+                                                      @error('name')
+                                                        <div style="color:red;">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
-                                                        <input type="text" class="form-control" name="position" value="{{$about->position}}">
+                                                        <input type="text" class="form-control" name="position" value="{{old('position')}}">
                                                         <label for="floatingemailInput">Position</label>
                                                     </div>
+                                                      @error('postion')
+                                                        <div style="color:red;">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
 
                                             <div class="form-floating mb-2">
-                                                <textarea class="form-control" name="address" style="height: 100px">{{$about->address}}</textarea>
+                                                <textarea class="form-control" name="address" style="height: 100px">{{old('address')}}</textarea>
                                                 <label for="floatingTextarea">Address</label>
+                                                  @error('address')
+                                                        <div style="color:red;">{{ $message }}</div>
+                                                    @enderror
                                               </div>
 
                                               <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
-                                                        <input type="number" class="form-control" name="phone" value="{{$about->phone}}">
-                                                        <label for="floatingemailInput"> Tel:</label>
+                                                        <input type="number" class="form-control" name="phone" value="{{old('phone')}}">
+                                                        <label for="floatingemailInput"> Phone:</label>
                                                     </div>
                                                       @error('phone')
-                                                            <div style="color:red;">{{ $message }}</div>
-                                                        @enderror
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-floating mb-3">
-                                                        <input type="email" class="form-control" name="email" value="{{$about->email}}">
-                                                        <label for="floatingemailInput">E-mail:</label>
-                                                    </div>
+                                                        <div style="color:red;">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
 
@@ -102,9 +105,6 @@
                                <div class="upload__img-wrap"></div>
                               </div>
                             </div>
-                              @if($about->image)
-                                 <img src="{{asset($about->image)}}" alt="" class="flex-shrink-0 me-12 radius-8" width="30%" height="30%" style="margin-left:110%;margin-top:-39%">
-                              @endif
                                @error('image')
                                     <div style="color:red;">{{ $message }}</div>
                                 @enderror

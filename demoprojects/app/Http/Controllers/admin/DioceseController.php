@@ -28,6 +28,7 @@ class DioceseController extends Controller
     {
         $request->validate([
            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
+            'phone' => 'nullable|max:10',
         ]);
         $data = About::where('id',$id)->first();
         if($data){
