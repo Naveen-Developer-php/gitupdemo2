@@ -370,7 +370,7 @@
                         </div>
                     </li>
 
-                    <!-- <li class="menu-item">
+                    <li class="menu-item">
                         <a href="#menuuExpagesz" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
                             <span class="menu-icon"><i class="mdi mdi-file-cloud-outline"></i></span>
                             <span class="menu-text">Schools</span>
@@ -382,12 +382,12 @@
                                 
                                 
                                 <li class="menu-item">
-                                    <a href="diocesan-schools.html" class="menu-link">
+                                    <a href="{{route('diocesan_school')}}" class="menu-link">
                                         <span class="menu-text">Diocesan Schools</span>
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="religious-schools.html" class="menu-link">
+                                    <a href="{{route('religious_school')}}" class="menu-link">
                                         <span class="menu-text">Religious Schools</span>
                                     </a>
                                 </li>
@@ -409,12 +409,12 @@
                                 
                                 
                                 <li class="menu-item">
-                                    <a href="diocesan-colleges.html" class="menu-link">
+                                    <a href="{{route('diocesan_college')}}" class="menu-link">
                                         <span class="menu-text">Diocesan Colleges</span>
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="religious-colleges.html" class="menu-link">
+                                    <a href="{{route('religious_college')}}" class="menu-link">
                                         <span class="menu-text">Religious Colleges</span>
                                     </a>
                                 </li>
@@ -422,7 +422,7 @@
 
                             </ul>
                         </div>
-                    </li> -->
+                    </li>
 
                     <!-- <li class="menu-item">
                         <a href="#menuuExpagesc" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
@@ -455,7 +455,7 @@
 
                             </ul>
                         </div>
-                    </li>
+                    </li> -->
                     
                     <li class="menu-item">
                         <a href="#0"class="menu-link waves-effect waves-light">
@@ -463,7 +463,7 @@
                             <span class="menu-text"> Transfer List</span>
                             
                         </a>
-                    </li> -->
+                    </li>
                      <li class="menu-item">
                         <a href="{{route('event')}}"class="menu-link waves-effect waves-light">
                             <span class="menu-icon"><i class="mdi mdi-basketball-hoop"></i></span>

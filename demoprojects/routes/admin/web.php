@@ -12,6 +12,9 @@ use App\Http\Controllers\admin\DiocesanController;
 use App\Http\Controllers\admin\CommitteController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\ExtraController;
+use App\Http\Controllers\admin\SchoolController;
+use App\Http\Controllers\admin\CollegeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -274,6 +277,42 @@ Route::middleware(['web', 'auth:sanctum'])->group(function () {
 
         Route::get('/social-service','social_service')->name('social_service');
         Route::post('/update-social-service/{id}','update_social_service')->name('update_social_service');
+    });
+     Route::controller(SchoolController::class)->group(function (){
+        Route::get('/diocesan-school','diocesan_school')->name('diocesan_school');
+        Route::get('/add-diocesan-school','add_diocesan_school')->name('add_diocesan_school');
+        Route::post('/update-diocesan-school/{id}','update_diocesan_school')->name('update_diocesan_school');
+        Route::post('/save-diocesan-school','save_diocesan_school')->name('save_diocesan_school');
+        Route::get('/view-diocesan-school/{id}','view_diocesan_school')->name('view_diocesan_school');
+        Route::get('/delete-diocesan-school/{id}','delete_diocesan_school')->name('delete_diocesan_school');
+
+        Route::get('/religious-school','religious_school')->name('religious_school');
+        Route::get('/add-religious-school','add_religious_school')->name('add_religious_school');
+        Route::post('/save-religious-school','save_religious_school')->name('save_religious_school');
+        Route::post('/update-religious-school/{id}','update_religious_school')->name('update_religious_school');
+        Route::get('/view-religious-school/{id}','view_religious_school')->name('view_religious_school');
+        Route::get('/delete-religious-school/{id}','delete_religious_school')->name('delete_religious_school');
+
+        Route::get('/add-primary-school','add_primary_school')->name('add_primary_school');
+        Route::post('/update-primary-school/{id}','update_primary_school')->name('update_primary_school');
+        Route::post('/save-primary-school','save_primary_school')->name('save_primary_school');
+        Route::get('/view-primary-school/{id}','view_primary_school')->name('view_primary_school');
+        Route::get('/delete-primary-school/{id}','delete_primary_school')->name('delete_primary_school');
+    });
+     Route::controller(CollegeController::class)->group(function (){
+        Route::get('/diocesan-college','diocesan_college')->name('diocesan_college');
+        Route::get('/add-diocesan-college','add_diocesan_college')->name('add_diocesan_college');
+        Route::post('/update-diocesan-college/{id}','update_diocesan_college')->name('update_diocesan_college');
+        Route::post('/save-diocesan-college','save_diocesan_college')->name('save_diocesan_college');
+        Route::get('/view-diocesan-college/{id}','view_diocesan_college')->name('view_diocesan_college');
+        Route::get('/delete-diocesan-college/{id}','delete_diocesan_college')->name('delete_diocesan_college');
+
+        Route::get('/religious-college','religious_college')->name('religious_college');
+        Route::get('/add-religious-college','add_religious_college')->name('add_religious_college');
+        Route::post('/save-religious-college','save_religious_college')->name('save_religious_college');
+        Route::post('/update-religious-college/{id}','update_religious_college')->name('update_religious_college');
+        Route::get('/view-religious-college/{id}','view_religious_college')->name('view_religious_college');
+        Route::get('/delete-religious-college/{id}','delete_religious_college')->name('delete_religious_college');
     });
 });
 
