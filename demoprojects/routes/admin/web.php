@@ -6,10 +6,12 @@ use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\DioceseController;
 use App\Http\Controllers\admin\ConferenceController;
 use App\Http\Controllers\admin\ParishController;
-
-
-
-
+use App\Http\Controllers\admin\PriestController;
+use App\Http\Controllers\admin\BishopController;
+use App\Http\Controllers\admin\DiocesanController;
+use App\Http\Controllers\admin\CommitteController;
+use App\Http\Controllers\admin\SettingController;
+use App\Http\Controllers\admin\ExtraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -139,6 +141,139 @@ Route::middleware(['web', 'auth:sanctum'])->group(function () {
         Route::post('/update-area/{id}','update_area')->name('update_area');
         Route::get('/delete-area/{id}','delete_area')->name('delete_area');
 
+    });
+      Route::controller(PriestController::class)->group(function (){
+        Route::get('/priest-profile','priest_profile')->name('priest_profile');
+        Route::get('/add-priest-profile','add_priest_profile')->name('add_priest_profile');
+        Route::get('/view-priest-profile/{id}','view_priest_profile')->name('view_priest_profile');
+        Route::post('/save-priest-profile','save_priest_profile')->name('save_priest_profile');
+        Route::post('/update-priest-profile/{id}','update_priest_profile')->name('update_priest_profile');
+        Route::get('/delete-priest-profile/{id}','delete_priest_profile')->name('delete_priest_profile');
+    });
+      Route::controller(BishopController::class)->group(function (){
+        Route::get('/bishop-profile','bishop_profile')->name('bishop_profile');
+        Route::post('/update-bishop-profile/{id}','update_bishop_profile')->name('update_bishop_profile');
+        Route::get('/add-bishop-details','add_bishop_details')->name('add_bishop_details');
+        Route::post('/save-bishop-details','save_bishop_details')->name('save_bishop_details');
+        Route::get('/view-bishop-details/{id}','view_bishop_details')->name('view_bishop_details');
+        Route::post('/update-bishop-details/{id}','update_bishop_details')->name('update_bishop_details');
+        Route::get('/delete-bishop-details/{id}','delete_bishop_details')->name('delete_bishop_details');
+    });
+     Route::controller(DiocesanController::class)->group(function (){
+        Route::get('/obituary','obituary')->name('obituary');
+        Route::get('/add-obituary','add_obituary')->name('add_obituary');
+        Route::post('/save-obituary','save_obituary')->name('save_obituary');
+        Route::get('/view-obituary/{id}','view_obituary')->name('view_obituary');
+        Route::post('/update-obituary/{id}','update_obituary')->name('update_obituary');
+        Route::get('/delete-obituary/{id}','delete_obituary')->name('delete_obituary');
+
+        Route::get('/parishpriest','parish_priest')->name('parish_priest');
+        Route::get('/add-parishpriest','add_parish_priest')->name('add_parish_priest');
+        Route::post('/save-parishpriest','save_parish_priest')->name('save_parish_priest');
+        Route::get('/view-parishpriest/{id}','view_parish_priest')->name('view_parish_priest');
+        Route::post('/update-parishpriest/{id}','update_parish_priest')->name('update_parish_priest');
+        Route::get('/delete-parishpriest/{id}','delete_parish_priest')->name('delete_parish_priest');
+
+        Route::get('/reteriedpriest','reteried_priest')->name('reteried_priest');
+        Route::get('/add-reteriedpriest','add_reteried_priest')->name('add_reteried_priest');
+        Route::post('/save-reteriedpriest','save_reteried_priest')->name('save_reteried_priest');
+        Route::get('/view-reteriedpriest/{id}','view_reteried_priest')->name('view_reteried_priest');
+        Route::post('/update-reteriedpriest/{id}','update_reteried_priest')->name('update_reteried_priest');
+        Route::get('/delete-reteriedpriest/{id}','delete_reteried_priest')->name('delete_reteried_priest');
+    });
+      Route::controller(CommitteController::class)->group(function (){
+        Route::get('/diocesan-curia','diocesan_curia')->name('diocesan_curia');
+        Route::post('/update-diocesan-curia/{id}','update_diocesan_curia')->name('update_diocesan_curia');
+
+        Route::get('/college-consulators','college_consulators')->name('college_consulators');
+        Route::get('/add-college-consulators','add_college_consulators')->name('add_college_consulators');
+        Route::post('/save-college-consulators','save_college_consulators')->name('save_college_consulators');
+        Route::get('/view-college-consulators/{id}','view_college_consulators')->name('view_college_consulators');
+        Route::post('/update-college-consulators/{id}','update_college_consulators')->name('update_college_consulators');
+        Route::get('/delete-college-consulators/{id}','delete_college_consulators')->name('delete_college_consulators');
+
+        Route::get('/finance-committe','finance_committe')->name('finance_committe');
+
+        Route::get('/add-finance-committe-table1','add_finance_committe_table1')->name('add_finance_committe_table1');
+        Route::post('/save-finance-committe-table1','save_finance_committe_table1')->name('save_finance_committe_table1');
+        Route::post('/update-finance-committe-table1/{id}','update_finance_committe_table1')->name('update_finance_committe_table1');
+        Route::get('/view-finance-committe-table1/{id}','view_finance_committe_table1')->name('view_finance_committe_table1');
+        Route::get('/delete-finance-committe-table1/{id}','delete_finance_committe_table1')->name('delete_finance_committe_table1');
+
+        Route::get('/add-finance-committe-table2','add_finance_committe_table2')->name('add_finance_committe_table2');
+        Route::post('/save-finance-committe-table2','save_finance_committe_table2')->name('save_finance_committe_table2');
+        Route::post('/update-finance-committe-table2/{id}','update_finance_committe_table2')->name('update_finance_committe_table2');
+        Route::get('/view-finance-committe-table2/{id}','view_finance_committe_table2')->name('view_finance_committe_table2');
+        Route::get('/delete-finance-committe-table2/{id}','delete_finance_committe_table2')->name('delete_finance_committe_table2');
+
+        Route::get('/add-finance-committe-table3','add_finance_committe_table3')->name('add_finance_committe_table3');
+        Route::post('/save-finance-committe-table3','save_finance_committe_table3')->name('save_finance_committe_table3');
+        Route::post('/update-finance-committe-table3/{id}','update_finance_committe_table3')->name('update_finance_committe_table3');
+        Route::get('/view-finance-committe-table3/{id}','view_finance_committe_table3')->name('view_finance_committe_table3');
+        Route::get('/delete-finance-committe-table3/{id}','delete_finance_committe_table3')->name('delete_finance_committe_table3');
+    });
+     Route::controller(SettingController::class)->group(function (){
+        Route::get('/privacy','privacy')->name('privacy');
+        Route::post('/update-privacy/{id}','update_privacy')->name('update_privacy');
+
+        Route::get('/terms','terms')->name('terms');
+        Route::post('/update-terms/{id}','update_terms')->name('update_terms');
+
+        Route::get('/logo','logo')->name('logo');
+        Route::get('/view-logo/{id}','view_logo')->name('view_logo');
+        Route::post('/update-logo/{id}','update_logo')->name('update_logo');
+
+        Route::get('/banner','banner')->name('banner');
+        Route::get('/add-banner','add_banner')->name('add_banner');
+        Route::post('/save-banner','save_banner')->name('save_banner');
+        Route::get('/view-banner/{id}','view_banner')->name('view_banner');
+        Route::post('/update-banner/{id}','update_banner')->name('update_banner');
+        Route::get('/delete-banner/{id}','delete_banner')->name('delete_banner');
+
+        Route::get('/event','event')->name('event');
+        Route::get('/add-event','add_event')->name('add_event');
+        Route::post('/save-event','save_event')->name('save_event');
+        Route::post('/update-event/{id}','update_event')->name('update_event');
+        Route::get('/view-event/{id}','view_event')->name('view_event');
+        Route::get('/delete-event/{id}','delete_event')->name('delete_event');
+    });
+      Route::controller(ExtraController::class)->group(function (){
+        Route::get('/educational-committe','educational_committe')->name('educational_committe');
+
+        Route::get('/add-educational-committe-table1','add_educational_committe_table1')->name('add_educational_committe_table1');
+        Route::post('/save-educational-committe-table1','save_educational_committe_table1')->name('save_educational_committe_table1');
+        Route::post('/update-educational-committe-table1/{id}','update_educational_committe_table1')->name('update_educational_committe_table1');
+        Route::get('/view-educational-committe-table1/{id}','view_educational_committe_table1')->name('view_educational_committe_table1');
+        Route::get('/delete-educational-committe-table1/{id}','delete_educational_committe_table1')->name('delete_educational_committe_table1');
+
+        Route::get('/add-educational-committe-table2','add_educational_committe_table2')->name('add_educational_committe_table2');
+        Route::post('/save-educational-committe-table2','save_educational_committe_table2')->name('save_educational_committe_table2');
+        Route::post('/update-educational-committe-table2/{id}','update_educational_committe_table2')->name('update_educational_committe_table2');
+        Route::get('/view-educational-committe-table2/{id}','view_educational_committe_table2')->name('view_educational_committe_table2');
+        Route::get('/delete-educational-committe-table2/{id}','delete_educational_committe_table2')->name('delete_educational_committe_table2');
+
+        Route::get('/add-educational-committe-table3','add_educational_committe_table3')->name('add_educational_committe_table3');
+        Route::post('/save-educational-committe-table3','save_educational_committe_table3')->name('save_educational_committe_table3');
+        Route::post('/update-educational-committe-table3/{id}','update_educational_committe_table3')->name('update_educational_committe_table3');
+        Route::get('/view-educational-committe-table3/{id}','view_educational_committe_table3')->name('view_educational_committe_table3');
+        Route::get('/delete-educational-committe-table3/{id}','delete_educational_committe_table3')->name('delete_educational_committe_table3');
+
+        Route::get('/diocesan-society','diocesan_society')->name('diocesan_society');
+        Route::get('/add-diocesan-society','add_diocesan_society')->name('add_diocesan_society');
+        Route::post('/save-diocesan-society','save_diocesan_society')->name('save_diocesan_society');
+        Route::post('/update-diocesan-society/{id}','update_diocesan_society')->name('update_diocesan_society');
+        Route::get('/view-diocesan-society/{id}','view_diocesan_society')->name('view_diocesan_society');
+        Route::get('/delete-diocesan-society/{id}','delete_diocesan_society')->name('delete_diocesan_society');
+
+        Route::get('/pastoral-commission','pastoral_commission')->name('pastoral_commission');
+        Route::get('/add-pastoral-commission','add_pastoral_commission')->name('add_pastoral_commission');
+        Route::post('/save-pastoral-commission','save_pastoral_commission')->name('save_pastoral_commission');
+        Route::post('/update-pastoral-commission/{id}','update_pastoral_commission')->name('update_pastoral_commission');
+        Route::get('/view-pastoral-commission/{id}','view_pastoral_commission')->name('view_pastoral_commission');
+        Route::get('/delete-pastoral-commission/{id}','delete_pastoral_commission')->name('delete_pastoral_commission');
+
+        Route::get('/social-service','social_service')->name('social_service');
+        Route::post('/update-social-service/{id}','update_social_service')->name('update_social_service');
     });
 });
 
