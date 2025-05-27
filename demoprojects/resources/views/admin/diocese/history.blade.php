@@ -58,6 +58,18 @@
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->
                             </div><!-- end col -->
+
+                                <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        
+                                        <div id="snow-editor1" style="height: 300px;">
+                                          
+                                        </div> <!-- end Snow-editor-->
+                                          <input type="hidden" name="description1" id="hidden-description1">
+                                    </div> <!-- end card-body-->
+                                </div> <!-- end card-->
+                            </div><!-- end col -->
                         </div>
                         <!-- end row -->  
 
@@ -102,12 +114,37 @@
         }
     });
 
+     // Editor 2
+    var quill2 = new Quill('#snow-editor1', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                [{ 'font': [] }],
+                [{ 'size': ['small', false, 'large', 'huge'] }],
+                ['bold', 'italic', 'underline', 'strike'],
+                [{ 'color': [] }, { 'background': [] }],
+                [{ 'script': 'sub' }, { 'script': 'super' }],
+                [{ 'header': 1 }, { 'header': 2 }],
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                [{ 'indent': '-1' }, { 'indent': '+1' }],
+                [{ 'direction': 'rtl' }],
+                [{ 'align': [] }],
+                ['link', 'image', 'video', 'code-block'],
+                ['clean']
+            ]
+        }
+    });
+
     // Set content if already saved
     quill.root.innerHTML = `{!! $history->description !!}`;
+    quill2.root.innerHTML = `{!! $history->description1 !!}`;
+
 
     // Save content on form submit
     document.querySelector('form').onsubmit = function () {
         document.querySelector('#hidden-description').value = quill.root.innerHTML;
+        document.querySelector('#hidden-description1').value = quill2.root.innerHTML;
+
     };
 </script>
     </body>

@@ -65,6 +65,7 @@ class DioceseController extends Controller
         $data = History::where('id',$id)->first();
         if($data){
              $data->description = $request->description;
+             $data->description1 = $request->description1;
             $data->save();
             return redirect()->back()->with('popup_success','History updated succesfully.');
         }else{
