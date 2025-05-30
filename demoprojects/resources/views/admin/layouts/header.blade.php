@@ -26,5 +26,9 @@
         <link href="{{asset('public/assets/libs/select2/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('public/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css">
     <script src="{{asset('public/assets/js/config.js')}}"></script>
+     <link href="{{asset('public/assets/libs/fullcalendar/main.min.css')}}" rel="stylesheet" type="text/css" />
+
+      <!-- <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css" rel="stylesheet"> -->
+
     
 </head>

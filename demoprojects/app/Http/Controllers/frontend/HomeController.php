@@ -23,7 +23,7 @@ use App\Models\FABC;
 use App\Models\CBCI;
 use App\Models\CCBI;
 use App\Models\TNBC;
-
+use App\Models\BishopEvent;
 class HomeController extends Controller
 {
     public function index()
@@ -82,6 +82,13 @@ class HomeController extends Controller
         $bishop = BishopProfile::find(1);
         $table1 = BishopDetails::orderby('created_at','desc')->get();
         return view('frontend.diocese.bishop',compact('logo','bishop','table1'));
+    }
+
+     public function bishop_engagement()
+    {
+        $logo = Logo::find(1);
+        $bishop = BishopEvent::all();
+        return view('frontend.diocese.bishop_engagement',compact('logo','bishop'));
     }
 
      public function fabc()

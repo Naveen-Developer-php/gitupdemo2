@@ -105,7 +105,7 @@
     </table>
 
     <div class="pdng1"></div>
-                {!! $vocation->description1 !!}
+                {!! $vocation->description2 !!}
                      
 
                 </div>

@@ -30,6 +30,8 @@ Route::prefix('front')->controller(HomeController::class)->group(function () {
     Route::get('/regulation', 'regulation')->name('front.regulation');
     Route::get('/pious-association', 'pious_association')->name('front.pious_association');
     Route::get('/bishop-profile', 'bishop_profile')->name('front.bishop_profile');
+    Route::get('/bishop-engagement', 'bishop_engagement')->name('front.bishop_engagement');
+
     Route::get('/fabc', 'fabc')->name('front.fabc');
     Route::get('/cbci', 'cbci')->name('front.cbci');
     Route::get('/ccbi', 'ccbi')->name('front.ccbi');
@@ -68,5 +70,9 @@ Route::prefix('front')->controller(OrganizationController::class)->group(functio
     Route::get('/religious-college', 'religious_college')->name('front.religious_college');
      Route::get('/diocesan-school', 'diocesan_school')->name('front.diocesan_school');
     Route::get('/religious-school', 'religious_school')->name('front.religious_school');
+    Route::get('/hospital', 'hospital')->name('front.hospital');
+    Route::get('/home_age', 'home_age')->name('front.home_age');
+    Route::get('/orphanages', 'orphanages')->name('front.orphanages');
+
 
 });
