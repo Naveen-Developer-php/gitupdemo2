@@ -161,6 +161,9 @@ Route::middleware(['web', 'auth:sanctum'])->group(function () {
         Route::get('/view-bishop-details/{id}','view_bishop_details')->name('view_bishop_details');
         Route::post('/update-bishop-details/{id}','update_bishop_details')->name('update_bishop_details');
         Route::get('/delete-bishop-details/{id}','delete_bishop_details')->name('delete_bishop_details');
+        Route::get('/bishop-engagement','bishop_engagement')->name('bishop_engagement');
+        Route::post('/add-bishop-event','add_bishop_event')->name('add_bishop_event');
+        Route::get('/delete-bishop-event/{id}','delete_bishop_event')->name('delete_bishop_event');
     });
      Route::controller(DiocesanController::class)->group(function (){
         Route::get('/obituary','obituary')->name('obituary');
@@ -313,6 +316,20 @@ Route::middleware(['web', 'auth:sanctum'])->group(function () {
         Route::post('/update-religious-college/{id}','update_religious_college')->name('update_religious_college');
         Route::get('/view-religious-college/{id}','view_religious_college')->name('view_religious_college');
         Route::get('/delete-religious-college/{id}','delete_religious_college')->name('delete_religious_college');
+
+        Route::get('/hospital','hospital')->name('hospital');
+        Route::get('/add-hospital','add_hospital')->name('add_hospital');
+        Route::post('/save-hospital','save_hospital')->name('save_hospital');
+        Route::get('/view-hospital/{id}','view_hospital')->name('view_hospital');
+        Route::post('/update-hospital/{id}','update_hospital')->name('update_hospital');
+        Route::get('/delete-hospital/{id}','delete_hospital')->name('delete_hospital');
+
+        Route::get('/home_age','home_age')->name('home_age');
+        Route::get('/add-home_age','add_home_age')->name('add_home_age');
+        Route::post('/save-home_age','save_home_age')->name('save_home_age');
+        Route::get('/view-home_age/{id}','view_home_age')->name('view_home_age');
+        Route::post('/update-home_age/{id}','update_home_age')->name('update_home_age');
+        Route::get('/delete-home_age/{id}','delete_home_age')->name('delete_home_age');
     });
 });
 

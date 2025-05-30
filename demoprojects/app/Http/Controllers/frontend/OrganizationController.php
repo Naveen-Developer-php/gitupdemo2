@@ -10,6 +10,8 @@ use App\Models\DiocesanSchool;
 use App\Models\PrimarySchool;
 use App\Models\ReligiousCollege;
 use App\Models\ReligiousSchool;
+use App\Models\HomeAge;
+use App\Models\Hospital;
 
 
 class OrganizationController extends Controller
@@ -43,4 +45,25 @@ class OrganizationController extends Controller
         $table2 = ReligiousSchool::orderby('created_at','desc')->get();
         return view('frontend.organization.religious_school',compact('logo','table1','table2'));
     }
+
+       public function hospital()
+    {
+        $logo = Logo::find(1);
+        $table1 = Hospital::orderby('created_at','desc')->get();
+        return view('frontend.organization.hospital',compact('logo','table1'));
+    }
+
+        public function home_age()
+    {
+        $logo = Logo::find(1);
+        $table1 = HomeAge::orderby('created_at','desc')->get();
+        return view('frontend.organization.home_age',compact('logo','table1'));
+    }
+
+     public function orphanages()
+    {
+        $logo = Logo::find(1);
+        return view('frontend.organization.orphanages',compact('logo'));
+    }
+
 }

@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\User;
 use App\Models\BishopDetails;
 use App\Models\BishopProfile;
+use App\Models\BishopEvent;
+
 
 
 class BishopController extends Controller
@@ -83,5 +85,34 @@ class BishopController extends Controller
         $user = Auth::user();
         $data = BishopDetails::where('id',$id)->delete();
         return redirect()->back()->with('popup_success','Bishopdetails deleted succesfully.');
+    }
+
+    public function bishop_engagement()
+    {
+        $user = Auth::user();
+        $events = BishopEvent::orderBy('created_at', 'desc')->get();
+        return view('admin.bishop.bishop_engagement',compact('user','events'));
+    }
+
+
+    public function add_bishop_event(Request $request)
+    {
+       $request->validate([
+            'title' => 'required',
+            'event_date' => 'required',
+        ]);
+
+        $event = new BishopEvent();
+        $event->title = $request->title;
+        $event->event_date = $request->event_date; 
+        $event->save();
+        return redirect()->back()->with('popup_success','BishopEvent added succesfully.');
+
+    }
+
+    public function delete_bishop_event($id)
+    {
+        BishopEvent::destroy($id);
+         return redirect()->back()->with('popup_success','BishopEvent deleted succesfully.');
     }
 }

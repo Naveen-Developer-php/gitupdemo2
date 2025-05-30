@@ -55,7 +55,7 @@ class ParishPriestController extends Controller
     {
         $logo = Logo::find(1);
         $table1 = ReteriedPriest::orderby('created_at','desc')->get();
-        return view('frontend.parish_priest.Retired_priest',compact('logo','table1'));
+        return view('frontend.parish_priest.retired_priest',compact('logo','table1'));
     }
 
       public function obituary()

@@ -46,6 +46,77 @@
         <!-- Plugins js -->
         <script src="{{asset('public/assets/libs/quill/quill.min.js')}}"></script>
 
+           <script src="{{asset('public/assets/libs/moment/min/moment.min.js')}}"></script>
+    <script src="{{asset('public/assets/libs/fullcalendar/main.min.js')}}"></script>
+
+    <script src="{{asset('public/assets/js/iconify-icon.min.js')}}"></script>
+    <!-- plugin js -->
+    <script src="{{asset('public/assets/libs/moment/min/moment.min.js')}}"></script>
+    <script src="{{asset('public/assets/libs/fullcalendar/main.min.js')}}"></script>
+    <!-- Calendar js -->
+
+
+    <script>
+    // Flat pickr or date picker js 
+    function getDatePicker (receiveID) {
+        flatpickr(receiveID, {
+            enableTime: true,
+            dateFormat: "d/m/Y H:i",
+        });
+    }
+    getDatePicker('#startDate'); 
+    getDatePicker('#endDate');
+
+    getDatePicker('#editstartDate'); 
+    getDatePicker('#editendDate');
+
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const exampleModal = document.getElementById('exampleModalView');
+
+    exampleModal.addEventListener('show.bs.modal', (event) => {
+        // Get the button that triggered the modal
+        const button = event.relatedTarget;
+
+        // Extract data from data-* attributes
+        const title = button.getAttribute('data-title');
+        const date = button.getAttribute('data-date');
+
+        // Update the modal content
+        document.getElementById('modal-title').textContent = title;
+        document.getElementById('modal-date').textContent = date;
+    });
+});
+
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const holidays = @json($events); // Pass the holidays to JavaScript
+
+        $('#calendar1').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            events: holidays.map(holiday => ({
+                title: holiday.title, // Holiday title
+                start: holiday.event_date, // Holiday date
+                allDay: true, // Make it an all-day event
+                color: 'orange' // Optional: Customize event color
+            }))
+        });
+    });
+</script>
+
+
+    
+     <!-- <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+
         <!-- Demo js-->
         <!-- <script src="{{asset('public/assets/js/pages/form-quilljs.js')}}"></script> -->
 <script>

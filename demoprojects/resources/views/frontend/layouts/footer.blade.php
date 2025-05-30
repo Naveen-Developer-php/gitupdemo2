@@ -55,7 +55,7 @@
                                     <a href="{{route('front.diocesan_college')}}">Colleges</a>
                                 </li>
                                 <li>
-                                    <a href="#">Charitable</a>
+                                    <a href="{{route('front.hospital')}}">Charitable</a>
                                 </li>
                                 <li>
                                     <a href="#">Other Institutions</a>

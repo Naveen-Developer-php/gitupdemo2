@@ -81,11 +81,11 @@
                                         <span class="menu-text"> Bishop's Profile</span>
                                     </a>
                                 </li>
-                                <!-- <li class="menu-item">
-                                    <a href="bishop-engagement.html" class="menu-link">
+                                <li class="menu-item">
+                                    <a href="{{route('bishop_engagement')}}" class="menu-link">
                                         <span class="menu-text"> Bishop's Engagements</span>
                                     </a>
-                                </li> -->
+                                </li>
                                 
                             </ul>
                         </div>
@@ -424,7 +424,7 @@
                         </div>
                     </li>
 
-                    <!-- <li class="menu-item">
+                    <li class="menu-item">
                         <a href="#menuuExpagesc" data-bs-toggle="collapse" class="menu-link waves-effect waves-light">
                             <span class="menu-icon"><i class="mdi mdi-file-cloud-outline"></i></span>
                             <span class="menu-text">Charitable</span>
@@ -436,12 +436,12 @@
                                 
                                 
                                 <li class="menu-item">
-                                    <a href="hospitals.html" class="menu-link">
+                                    <a href="{{route('hospital')}}" class="menu-link">
                                         <span class="menu-text">Hospitals</span>
                                     </a>
                                 </li>
                                 <li class="menu-item">
-                                    <a href="home-for-aged.html" class="menu-link">
+                                    <a href="{{route('home_age')}}" class="menu-link">
                                         <span class="menu-text">Home For Aged</span>
                                     </a>
                                 </li>
@@ -455,7 +455,7 @@
 
                             </ul>
                         </div>
-                    </li> -->
+                    </li>
                     
                     <li class="menu-item">
                         <a href="#0"class="menu-link waves-effect waves-light">

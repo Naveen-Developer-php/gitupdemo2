@@ -174,7 +174,7 @@
                                 <p style="text-align: left;">
                                     Diocese of Thanjavur operates Hospitals, Home for Aged and Orphanages
                                 </p>
-                                <a href="#">Read More <i class="ti-arrow-right"></i></a>
+                                <a href="{{route('front.hospital')}}">Read More <i class="ti-arrow-right"></i></a>
                             </div>
                         </div>
                     </div>

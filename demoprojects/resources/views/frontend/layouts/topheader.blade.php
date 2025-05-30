@@ -88,7 +88,7 @@
                                             <div class="content">
                                                 <ul class="menu-col">
                                                     <li><a href="{{route('front.bishop_profile')}}">Bishop's Profile</a></li>
-                                                    <!-- <li><a href="bishop-engagement.html">Bishop's Engagements</a></li> -->
+                                                    <li><a href="{{route('front.bishop_engagement')}}">Bishop's Engagements</a></li>
                                                 </ul>
                                             </div>
                                         </div><!-- end col-3 -->
@@ -211,17 +211,18 @@
                                                 </ul>
                                             </div>
                                         </div><!-- end col-3 -->
-                                        <!-- <div class="col-menu col-md-3">
+                                        <div class="col-menu col-md-3">
                                             <h6 class="title">Charitable</h6>
                                             <div class="content">
                                                 <ul class="menu-col">
-                                                    <li><a href="hospitals.html">Hospitals</a></li>
-                                                    <li><a href="home-for-aged.html">Home For Aged</a></li>
-                                                    <li><a href="orphanages.html">Orphanages</a></li>
+                                                    <li><a href="{{route('front.hospital')}}">Hospitals</a></li>
+                                                    <li><a href="{{route('front.home_age')}}">Home For Aged</a></li>
+                                                    <li><a href="{{route('front.orphanages')}}">Orphanages</a></li>
                                                     
                                                 </ul>
                                             </div>
-                                        </div>end col-3 -->
+                                        </div>
+                                        <!-- end col-3 -->
                                         <div class="col-menu col-md-3">
                                             <h6 class="title">Other Institutions</h6>
                                             <div class="content">
