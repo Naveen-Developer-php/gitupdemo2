@@ -31,26 +31,23 @@ class DiocesanController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'position' => 'required',
-            'phone' => 'required|max:10',
-            'email' => 'required',
-            'address' => 'required',
-           'image' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'phone' => 'nullable|max:10',
+           'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
         ]);
         $data = new Obituary();
              $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
-             $data->email = $request->email; 
+             $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;   
+             $data->email = $request->email ?? ""; 
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
                 $thumbnailName = date('YmdHis') . uniqid() . "." . $thumbnail->getClientOriginalExtension();
                 $thumbnail->storeAs('files/', $thumbnailName, 'public');
                 $data->image = "$var/files/$thumbnailName";
-            }else{
-                unset($data->image);
+           }else{
+                $data->image = "";
             }  
             $data->save();
             return redirect()->back()->with('popup_success','Obituary added succesfully.');
@@ -72,11 +69,11 @@ class DiocesanController extends Controller
         ]);
         $data = Obituary::where('id',$id)->first();
         if($data){
-             $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
-             $data->email = $request->email; 
+            $data->name = $request->name;
+             $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;   
+             $data->email = $request->email ?? ""; 
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
@@ -130,25 +127,25 @@ class DiocesanController extends Controller
         $request->validate([
             'name' => 'required',
             'position' => 'required',
-            'phone' => 'required|max:10',
-            'email' => 'required',
-            'address' => 'required',
-           'image' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'date_of_brith' => 'required',
+           'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
+            'phone' => 'nullable|max:10',
         ]);
         $data = new ParishPriest();
              $data->name = $request->name;
              $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
-             $data->email = $request->email; 
+             $data->date_of_brith = $request->date_of_brith;   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;   
+             $data->email = $request->email ?? ""; 
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
                 $thumbnailName = date('YmdHis') . uniqid() . "." . $thumbnail->getClientOriginalExtension();
                 $thumbnail->storeAs('files/', $thumbnailName, 'public');
                 $data->image = "$var/files/$thumbnailName";
-            }else{
-                unset($data->image);
+             }else{
+                $data->image = "";
             }  
             $data->save();
             return redirect()->back()->with('popup_success','ParishPriest added succesfully.');
@@ -169,11 +166,12 @@ class DiocesanController extends Controller
         ]);
         $data = ParishPriest::where('id',$id)->first();
         if($data){
-             $data->name = $request->name;
+            $data->name = $request->name;
              $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
-             $data->email = $request->email; 
+             $data->date_of_brith = $request->date_of_brith;   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;   
+             $data->email = $request->email ?? ""; 
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
@@ -226,26 +224,23 @@ class DiocesanController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'position' => 'required',
-            'phone' => 'required|max:10',
-            'email' => 'required',
-            'address' => 'required',
-           'image' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'phone' => 'nullable|max:10',
+           'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
         ]);
         $data = new ReteriedPriest();
-             $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
-             $data->email = $request->email; 
+              $data->name = $request->name;
+             $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;   
+             $data->email = $request->email ?? ""; 
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
                 $thumbnailName = date('YmdHis') . uniqid() . "." . $thumbnail->getClientOriginalExtension();
                 $thumbnail->storeAs('files/', $thumbnailName, 'public');
                 $data->image = "$var/files/$thumbnailName";
-            }else{
-                unset($data->image);
+              }else{
+                $data->image = "";
             }  
             $data->save();
             return redirect()->back()->with('popup_success','ReteriedPriest added succesfully.');
@@ -266,11 +261,11 @@ class DiocesanController extends Controller
         ]);
         $data = ReteriedPriest::where('id',$id)->first();
         if($data){
-             $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
-             $data->email = $request->email; 
+              $data->name = $request->name;
+             $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;   
+             $data->email = $request->email ?? ""; 
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');

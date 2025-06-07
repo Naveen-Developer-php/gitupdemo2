@@ -88,14 +88,14 @@ class ParishController extends Controller
     {
         $request->validate([
             "address" => "required",
-            "phone" => "required|max:10",
+            "phone" => "nullable|max:10",
             "parish" => "required",
 
         ]);
 
         $data = new Parish();
         $data->parish = $request->parish;
-        $data->phone = $request->phone;
+        $data->phone = $request->phone ?? 0;
         $data->address = $request->address;
         $data->save();
         return redirect()->back()->with('popup_success','parish added succesfully.');
@@ -117,7 +117,7 @@ class ParishController extends Controller
       $data = Parish::where('id',$id)->first();
       if($data){
         $data->parish = $request->parish;
-        $data->phone = $request->phone;
+       $data->phone = $request->phone ?? 0;
         $data->address = $request->address;
         $data->save();
         return redirect()->back()->with('popup_success','Parish updated succesfully.');
@@ -150,20 +150,15 @@ class ParishController extends Controller
     {
         $request->validate([
             "name" => "required",
-            "family" => "required",
-            "female" => "required",
-              "male" => "required",
-            "total_population" => "required",
-            "substation" => "required",
         ]);
 
         $data = new ParishStatistis();
         $data->name = $request->name;
-        $data->family = $request->family;
-        $data->female = $request->female;
-          $data->male = $request->male;
-        $data->total_population = $request->total_population;
-        $data->substation = $request->substation;
+        $data->family = $request->family ?? "";
+        $data->female = $request->female ?? "";
+          $data->male = $request->male ?? "";
+        $data->total_population = $request->total_population ?? "";
+        $data->substation = $request->substation ?? "";
         $data->save();
         return redirect()->back()->with('popup_success','parishstatistis added succesfully.');
     }
@@ -180,11 +175,11 @@ class ParishController extends Controller
       $data = ParishStatistis::where('id',$id)->first();
       if($data){
          $data->name = $request->name;
-        $data->family = $request->family;
-        $data->female = $request->female;
-          $data->male = $request->male;
-        $data->total_population = $request->total_population;
-        $data->substation = $request->substation;
+     $data->family = $request->family ?? "";
+        $data->female = $request->female ?? "";
+          $data->male = $request->male ?? "";
+        $data->total_population = $request->total_population ?? "";
+        $data->substation = $request->substation ?? "";
         $data->save();
         return redirect()->back()->with('popup_success','Parishstatistis updated succesfully.');
       }else{
@@ -216,16 +211,15 @@ class ParishController extends Controller
     {
         $request->validate([
             "name" => "required",
-            "position" => "required",
-            "phone" => "required|max:10",
-              "tel" => "required",
+            "phone" => "nullable|max:10",
+              "tel" => "nullable|max:10",
         ]);
 
         $data = new Shrine();
         $data->name = $request->name;
-        $data->position = $request->position;
-        $data->phone = $request->phone;
-          $data->tel = $request->tel;
+        $data->position = $request->position ?? "";
+        $data->phone = $request->phone ?? 0;
+          $data->tel = $request->tel ?? 0 ;
         $data->save();
         return redirect()->back()->with('popup_success','Shrine added succesfully.');
     }
@@ -245,9 +239,9 @@ class ParishController extends Controller
       $data = Shrine::where('id',$id)->first();
       if($data){
           $data->name = $request->name;
-        $data->position = $request->position;
-        $data->phone = $request->phone;
-          $data->tel = $request->tel;
+      $data->position = $request->position ?? "";
+        $data->phone = $request->phone ?? 0;
+          $data->tel = $request->tel ?? 0 ;
         $data->save();
         return redirect()->back()->with('popup_success','Shrine updated succesfully.');
       }else{

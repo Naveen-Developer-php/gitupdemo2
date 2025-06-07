@@ -31,23 +31,17 @@ class ConferenceController extends Controller
     {
         $request->validate([
             "position" => "required",
-             "tagline" => "required",
-              "fax" => "required",
-               "image" => "required|image|mimes:jpeg,png,jpg|max:1024",
-                "website" => "required",
-                 "phone" => "required|max:10",
-                  "email" => "required|email",
-                  "address" => "required",
-
+               "image" => "nullable|image|mimes:jpeg,png,jpg|max:1024",
+                 "phone" => "nullable|max:10",
         ]);
         $data = new FABC();
         $data->position = $request->position;
-        $data->tagline = $request->tagline;
-        $data->address = $request->address;
-        $data->fax = $request->fax;
-        $data->website = $request->website;
-        $data->phone = $request->phone;
-        $data->email = $request->email;
+        $data->tagline = $request->tagline ?? "";
+        $data->address = $request->address ?? "";
+        $data->fax = $request->fax ?? "";
+        $data->website = $request->website ?? "";
+        $data->phone = $request->phone ?? 0;
+        $data->email = $request->email ?? "";
 
           $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
@@ -55,8 +49,8 @@ class ConferenceController extends Controller
                 $thumbnailName = date('YmdHis') . uniqid() . "." . $thumbnail->getClientOriginalExtension();
                 $thumbnail->storeAs('files/', $thumbnailName, 'public');
                 $data->image = "$var/files/$thumbnailName";
-            }else{
-                unset($data->image);
+          }else{
+                $data->image = "";
             }  
         $data->created_at = now();
         $data->save();
@@ -78,13 +72,13 @@ class ConferenceController extends Controller
         ]);
         $data = FABC::where('id',$id)->first();
         if($data){
-             $data->position = $request->position;
-        $data->tagline = $request->tagline;
-        $data->address = $request->address;
-        $data->fax = $request->fax;
-        $data->website = $request->website;
-        $data->phone = $request->phone;
-        $data->email = $request->email;
+            $data->position = $request->position;
+            $data->tagline = $request->tagline ?? "";
+            $data->address = $request->address ?? "";
+            $data->fax = $request->fax ?? "";
+            $data->website = $request->website ?? "";
+          $data->phone = $request->phone ?? 0;
+            $data->email = $request->email ?? "";
 
           $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
@@ -138,23 +132,17 @@ class ConferenceController extends Controller
     {
         $request->validate([
             "position" => "required",
-             "tagline" => "required",
-              "fax" => "required",
-               "image" => "required|image|mimes:jpeg,png,jpg|max:1024",
-                "website" => "required",
-                 "phone" => "required|max:10",
-                  "email" => "required|email",
-                  "address" => "required",
-
+               "image" => "nullable|image|mimes:jpeg,png,jpg|max:1024",
+                 "phone" => "nullable|max:10",
         ]);
         $data = new CBCI();
         $data->position = $request->position;
-        $data->tagline = $request->tagline;
-        $data->address = $request->address;
-        $data->fax = $request->fax;
-        $data->website = $request->website;
-        $data->phone = $request->phone;
-        $data->email = $request->email;
+        $data->tagline = $request->tagline ?? "";
+        $data->address = $request->address ?? "";
+        $data->fax = $request->fax ?? "";
+        $data->website = $request->website ?? "";
+       $data->phone = $request->phone ?? 0;
+        $data->email = $request->email ?? "";
 
           $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
@@ -162,8 +150,8 @@ class ConferenceController extends Controller
                 $thumbnailName = date('YmdHis') . uniqid() . "." . $thumbnail->getClientOriginalExtension();
                 $thumbnail->storeAs('files/', $thumbnailName, 'public');
                 $data->image = "$var/files/$thumbnailName";
-            }else{
-                unset($data->image);
+             }else{
+                $data->image = "";
             }  
         $data->created_at = now();
         $data->save();
@@ -186,13 +174,12 @@ class ConferenceController extends Controller
         $data = CBCI::where('id',$id)->first();
         if($data){
              $data->position = $request->position;
-        $data->tagline = $request->tagline;
-        $data->address = $request->address;
-        $data->fax = $request->fax;
-        $data->website = $request->website;
-        $data->phone = $request->phone;
-        $data->email = $request->email;
-
+        $data->tagline = $request->tagline ?? "";
+        $data->address = $request->address ?? "";
+        $data->fax = $request->fax ?? "";
+        $data->website = $request->website ?? "";
+     $data->phone = $request->phone ?? 0;
+        $data->email = $request->email ?? "";
           $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
@@ -246,23 +233,17 @@ class ConferenceController extends Controller
     {
         $request->validate([
             "position" => "required",
-             "tagline" => "required",
-              "fax" => "required",
-               "image" => "required|image|mimes:jpeg,png,jpg|max:1024",
-                "website" => "required",
-                 "phone" => "required|max:10",
-                  "email" => "required|email",
-                  "address" => "required",
-
+               "image" => "nullable|image|mimes:jpeg,png,jpg|max:1024",
+                 "phone" => "nullable|max:10",
         ]);
         $data = new CCBI();
         $data->position = $request->position;
-        $data->tagline = $request->tagline;
-        $data->address = $request->address;
-        $data->fax = $request->fax;
-        $data->website = $request->website;
-        $data->phone = $request->phone;
-        $data->email = $request->email;
+        $data->tagline = $request->tagline ?? "";
+        $data->address = $request->address ?? "";
+        $data->fax = $request->fax ?? "";
+        $data->website = $request->website ?? "";
+       $data->phone = $request->phone ?? 0;
+        $data->email = $request->email ?? "";
 
           $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
@@ -270,8 +251,8 @@ class ConferenceController extends Controller
                 $thumbnailName = date('YmdHis') . uniqid() . "." . $thumbnail->getClientOriginalExtension();
                 $thumbnail->storeAs('files/', $thumbnailName, 'public');
                 $data->image = "$var/files/$thumbnailName";
-            }else{
-                unset($data->image);
+             }else{
+                $data->image = "";
             }  
         $data->created_at = now();
         $data->save();
@@ -293,13 +274,13 @@ class ConferenceController extends Controller
         ]);
         $data = CCBI::where('id',$id)->first();
         if($data){
-             $data->position = $request->position;
-        $data->tagline = $request->tagline;
-        $data->address = $request->address;
-        $data->fax = $request->fax;
-        $data->website = $request->website;
-        $data->phone = $request->phone;
-        $data->email = $request->email;
+              $data->position = $request->position;
+        $data->tagline = $request->tagline ?? "";
+        $data->address = $request->address ?? "";
+        $data->fax = $request->fax ?? "";
+        $data->website = $request->website ?? "";
+     $data->phone = $request->phone ?? 0;
+        $data->email = $request->email ?? "";
 
           $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
@@ -353,23 +334,17 @@ class ConferenceController extends Controller
     {
         $request->validate([
             "position" => "required",
-             "tagline" => "required",
-              "fax" => "required",
-               "image" => "required|image|mimes:jpeg,png,jpg|max:1024",
-                "website" => "required",
-                 "phone" => "required|max:10",
-                  "email" => "required|email",
-                  "address" => "required",
-
+               "image" => "nullable|image|mimes:jpeg,png,jpg|max:1024",
+                 "phone" => "nullable|max:10",
         ]);
         $data = new TNBC();
-        $data->position = $request->position;
-        $data->tagline = $request->tagline;
-        $data->address = $request->address;
-        $data->fax = $request->fax;
-        $data->website = $request->website;
-        $data->phone = $request->phone;
-        $data->email = $request->email;
+         $data->position = $request->position;
+        $data->tagline = $request->tagline ?? "";
+        $data->address = $request->address ?? "";
+        $data->fax = $request->fax ?? "";
+        $data->website = $request->website ?? "";
+     $data->phone = $request->phone ?? 0;
+        $data->email = $request->email ?? "";
 
           $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
@@ -377,8 +352,8 @@ class ConferenceController extends Controller
                 $thumbnailName = date('YmdHis') . uniqid() . "." . $thumbnail->getClientOriginalExtension();
                 $thumbnail->storeAs('files/', $thumbnailName, 'public');
                 $data->image = "$var/files/$thumbnailName";
-            }else{
-                unset($data->image);
+              }else{
+                $data->image = "";
             }  
         $data->created_at = now();
         $data->save();
@@ -401,12 +376,12 @@ class ConferenceController extends Controller
         $data = TNBC::where('id',$id)->first();
         if($data){
              $data->position = $request->position;
-        $data->tagline = $request->tagline;
-        $data->address = $request->address;
-        $data->fax = $request->fax;
-        $data->website = $request->website;
-        $data->phone = $request->phone;
-        $data->email = $request->email;
+        $data->tagline = $request->tagline ?? "";
+        $data->address = $request->address ?? "";
+        $data->fax = $request->fax ?? "";
+        $data->website = $request->website ?? "";
+       $data->phone = $request->phone ?? 0;
+        $data->email = $request->email ?? "";
 
           $var = 'storage/app/public/';
             if ($request->hasFile('image')) {

@@ -124,13 +124,11 @@ class DioceseController extends Controller
     {
         $request->validate([
             "name" => "required",
-            "year" => "required",
-            "seminary" => "required",
         ]);
         $data = new VocationTable1();
-        $data->name = $request->name;
-        $data->year = $request->year;
-        $data->seminary = $request->seminary;
+        $data->name = $request->name ?? "";
+        $data->year = $request->year ?? "";
+        $data->seminary = $request->seminary ?? "";
         $data->created_at = now();
         $data->save();
         return redirect()->back()->with('popup_success','VocationsTable1 added succesfully.');
@@ -147,9 +145,9 @@ class DioceseController extends Controller
     {
         $data = VocationTable1::where('id',$id)->first();
         if($data){
-             $data->name = $request->name;
-            $data->year = $request->year;
-            $data->seminary = $request->seminary;
+            $data->name = $request->name ?? "";
+            $data->year = $request->year ?? "";
+            $data->seminary = $request->seminary ?? "";
             $data->save();
             return redirect()->back()->with('popup_success','VocationsTable1 updated succesfully.');
         }else{
@@ -167,13 +165,11 @@ class DioceseController extends Controller
     {
         $request->validate([
             "name" => "required",
-            "year" => "required",
-            "seminary" => "required",
         ]);
         $data = new VocationTable2();
-        $data->name = $request->name;
-        $data->year = $request->year;
-        $data->seminary = $request->seminary;
+        $data->name = $request->name ?? "";
+        $data->year = $request->year ?? "";
+        $data->seminary = $request->seminary ?? "";
         $data->created_at = now();
         $data->save();
         return redirect()->back()->with('popup_success','VocationsTable2 added succesfully.');
@@ -190,9 +186,9 @@ class DioceseController extends Controller
     {
         $data = VocationTable2::where('id',$id)->first();
         if($data){
-             $data->name = $request->name;
-            $data->year = $request->year;
-            $data->seminary = $request->seminary;
+            $data->name = $request->name ?? "";
+            $data->year = $request->year ?? "";
+            $data->seminary = $request->seminary ?? "";
             $data->save();
             return redirect()->back()->with('popup_success','VocationsTable2 updated succesfully.');
         }else{
@@ -246,13 +242,11 @@ class DioceseController extends Controller
     {
         $request->validate([
             "name" => "required",
-            "parish" => "required",
-            "address" => "required",
         ]);
         $data = new RegulationTable1();
         $data->name = $request->name;
-        $data->parish = $request->parish;
-        $data->address = $request->address;
+        $data->parish = $request->parish ?? "";
+        $data->address = $request->address ?? "";
         $data->created_at = now();
         $data->save();
         return redirect()->back()->with('popup_success','RegulationTable1 added succesfully.');
@@ -270,8 +264,8 @@ class DioceseController extends Controller
         $data = RegulationTable1::where('id',$id)->first();
         if($data){
              $data->name = $request->name;
-        $data->parish = $request->parish;
-        $data->address = $request->address;
+        $data->parish = $request->parish ?? "";
+        $data->address = $request->address ?? "";
             $data->save();
             return redirect()->back()->with('popup_success','RegulationTable1 updated succesfully.');
         }else{
@@ -289,13 +283,12 @@ class DioceseController extends Controller
     {
        $request->validate([
             "name" => "required",
-            "parish" => "required",
-            "address" => "required",
+          
         ]);
          $data = new RegulationTable2();
         $data->name = $request->name;
-        $data->parish = $request->parish;
-        $data->address = $request->address;
+       $data->parish = $request->parish ?? "";
+        $data->address = $request->address ?? "";
         $data->created_at = now();
         $data->save();
         return redirect()->back()->with('popup_success','RegulationTable2 added succesfully.');
@@ -313,8 +306,8 @@ class DioceseController extends Controller
         $data = RegulationTable2::where('id',$id)->first();
         if($data){
             $data->name = $request->name;
-        $data->parish = $request->parish;
-        $data->address = $request->address;
+         $data->parish = $request->parish ?? "";
+        $data->address = $request->address ?? "";
             $data->save();
             return redirect()->back()->with('popup_success','RegulationTable2 updated succesfully.');
         }else{

@@ -29,13 +29,13 @@
                         <div class="py-3 py-lg-4">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <h4 class="page-title mb-0">College Of Consulators</h4>
+                                    <h4 class="page-title mb-0">College Of Consultors</h4>
                                 </div>
                                 <div class="col-lg-6">
                                    <div class="d-none d-lg-block">
                                     <ol class="breadcrumb m-0 float-end">
                                         <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
-                                        <li class="breadcrumb-item active">College Of Consulators</li>
+                                        <li class="breadcrumb-item active">College Of Consultors</li>
                                     </ol>
                                    </div>
                                 </div>
@@ -113,7 +113,7 @@
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
-                Do you really want to delete College Of Consulators?
+                Do you really want to delete College Of Consultors?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

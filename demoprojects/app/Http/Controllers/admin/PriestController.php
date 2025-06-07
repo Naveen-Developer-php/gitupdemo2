@@ -28,26 +28,23 @@ class PriestController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'position' => 'required',
-            'phone' => 'required|max:10',
-            'email' => 'required',
-            'address' => 'required',
-           'image' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'phone' => 'nullable|max:10',
+           'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
         ]);
         $data = new PriestProfile();
              $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
-             $data->email = $request->email; 
+             $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;   
+             $data->email = $request->email ?? ""; 
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
                 $thumbnailName = date('YmdHis') . uniqid() . "." . $thumbnail->getClientOriginalExtension();
                 $thumbnail->storeAs('files/', $thumbnailName, 'public');
                 $data->image = "$var/files/$thumbnailName";
-            }else{
-                unset($data->image);
+           }else{
+                $data->image = "";
             }  
             $data->save();
             return redirect()->back()->with('popup_success','PriestProfile added succesfully.');
@@ -69,10 +66,10 @@ class PriestController extends Controller
         $data = PriestProfile::where('id',$id)->first();
         if($data){
              $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
-             $data->email = $request->email; 
+             $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;   
+             $data->email = $request->email ?? ""; 
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');

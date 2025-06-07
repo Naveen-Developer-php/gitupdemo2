@@ -35,24 +35,22 @@ class ExtraController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'position' => 'required',
-            'phone' => 'required|max:10',
-            'address' => 'required',
-           'image' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'phone' => 'nullable|max:10',
+           'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
         ]);
         $data = new EducationalCommitte();
              $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
+             $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;  
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
                 $thumbnailName = date('YmdHis') . uniqid() . "." . $thumbnail->getClientOriginalExtension();
                 $thumbnail->storeAs('files/', $thumbnailName, 'public');
                 $data->image = "$var/files/$thumbnailName";
-            }else{
-                unset($data->image);
+              }else{
+                $data->image = "";
             }  
             $data->save();
             return redirect()->back()->with('popup_success','EducationalCommitte Table1 added succesfully.');
@@ -75,9 +73,9 @@ class ExtraController extends Controller
         $data = EducationalCommitte::where('id',$id)->first();
         if($data){
              $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
+             $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;  
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
@@ -124,16 +122,14 @@ class ExtraController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'position' => 'required',
-            'phone' => 'required|max:10',
-            'address' => 'required',
-           'image' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'phone' => 'nullable|max:10',
+           'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
         ]);
         $data = new EducationalCommitte1();
              $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
+             $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;   
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
@@ -141,7 +137,7 @@ class ExtraController extends Controller
                 $thumbnail->storeAs('files/', $thumbnailName, 'public');
                 $data->image = "$var/files/$thumbnailName";
             }else{
-                unset($data->image);
+                $data->image = "";
             }  
             $data->save();
             return redirect()->back()->with('popup_success','EducationalCommitte Table2 added succesfully.');
@@ -164,9 +160,9 @@ class ExtraController extends Controller
         $data = EducationalCommitte1::where('id',$id)->first();
         if($data){
              $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
+               $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;    
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
@@ -212,16 +208,14 @@ class ExtraController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'position' => 'required',
-            'phone' => 'required|max:10',
-            'address' => 'required',
-           'image' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'phone' => 'nullable|max:10',
+           'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
         ]);
         $data = new EducationalCommitte2();
              $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
+              $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;   
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
@@ -229,7 +223,7 @@ class ExtraController extends Controller
                 $thumbnail->storeAs('files/', $thumbnailName, 'public');
                 $data->image = "$var/files/$thumbnailName";
             }else{
-                unset($data->image);
+                $data->image = "";
             }  
             $data->save();
             return redirect()->back()->with('popup_success','EducationalCommitte Table3 added succesfully.');
@@ -252,9 +246,9 @@ class ExtraController extends Controller
         $data = EducationalCommitte2::where('id',$id)->first();
         if($data){
              $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
+              $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;     
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
