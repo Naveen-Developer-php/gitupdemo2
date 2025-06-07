@@ -3978,12 +3978,10 @@ body,
 .team-area .item .info h4 {
     margin-bottom: 8px;
     font-weight: 700;
-    text-transform: capitalize;
 }
 
 .team-area .item .info span {
     font-weight: 500;
-    text-transform: uppercase;
     font-size: 16px;
     color: #a4a4a4;
     display: block;

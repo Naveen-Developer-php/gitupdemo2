@@ -32,13 +32,11 @@ class SchoolController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'parish' => 'required',
-            'address' => 'required',
         ]);
         $data = new DiocesanSchool();
              $data->name = $request->name;
-             $data->parish = $request->parish;
-             $data->address = $request->address;   
+             $data->parish = $request->parish ?? "";
+             $data->address = $request->address ?? "";   
             $data->save();
             return redirect()->back()->with('popup_success','MiddleSchool added succesfully.');
     }
@@ -56,8 +54,8 @@ class SchoolController extends Controller
         $data = DiocesanSchool::where('id',$id)->first();
         if($data){
              $data->name = $request->name;
-             $data->parish = $request->parish;
-             $data->address = $request->address;   
+              $data->parish = $request->parish ?? "";
+             $data->address = $request->address ?? ""; 
             $data->save();
             return redirect()->back()->with('popup_success','MiddleSchool updated succesfully.');
         }else{
@@ -92,13 +90,11 @@ class SchoolController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'parish' => 'required',
-            'address' => 'required',
         ]);
         $data = new ReligiousSchool();
              $data->name = $request->name;
-             $data->parish = $request->parish;
-             $data->address = $request->address;   
+              $data->parish = $request->parish ?? "";
+             $data->address = $request->address ?? "";  
             $data->save();
             return redirect()->back()->with('popup_success','MiddleSchool added succesfully.');
     }
@@ -116,8 +112,8 @@ class SchoolController extends Controller
         $data = ReligiousSchool::where('id',$id)->first();
         if($data){
              $data->name = $request->name;
-             $data->parish = $request->parish;
-             $data->address = $request->address;   
+              $data->parish = $request->parish ?? "";
+             $data->address = $request->address ?? "";  
             $data->save();
             return redirect()->back()->with('popup_success','MiddleSchool updated succesfully.');
         }else{
@@ -143,16 +139,12 @@ class SchoolController extends Controller
     {
         $request->validate([
             'school' => 'required',
-            'diocese_count' => 'required',
-            'religious_count' => 'required',
-            'total' => 'required',
-
         ]);
         $data = new PrimarySchool();
              $data->school = $request->school;
-             $data->diocese_count = $request->diocese_count;
-             $data->religious_count	 = $request->religious_count;   
-             $data->total	 = $request->total;   
+             $data->diocese_count = $request->diocese_count ?? "";
+             $data->religious_count	 = $request->religious_count ?? "";   
+             $data->total	 = $request->total ?? "";   
             $data->save();
             return redirect()->back()->with('popup_success','PrimarySchool added succesfully.');
     }
@@ -170,9 +162,9 @@ class SchoolController extends Controller
         $data = PrimarySchool::where('id',$id)->first();
         if($data){
              $data->school = $request->school;
-             $data->diocese_count = $request->diocese_count;
-             $data->religious_count	 = $request->religious_count;   
-             $data->total	 = $request->total;     
+               $data->diocese_count = $request->diocese_count ?? "";
+             $data->religious_count	 = $request->religious_count ?? "";   
+             $data->total	 = $request->total ?? ""; 
             $data->save();
             return redirect()->back()->with('popup_success','PrimarySchool updated succesfully.');
         }else{

@@ -91,25 +91,6 @@
 
 </script>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const holidays = @json($events); // Pass the holidays to JavaScript
-
-        $('#calendar1').fullCalendar({
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,agendaWeek,agendaDay'
-            },
-            events: holidays.map(holiday => ({
-                title: holiday.title, // Holiday title
-                start: holiday.event_date, // Holiday date
-                allDay: true, // Make it an all-day event
-                color: 'orange' // Optional: Customize event color
-            }))
-        });
-    });
-</script>
 
 
     

@@ -65,6 +65,7 @@
                             <div class="info">
                                 <div class="inner">
                                     <h4>{{$data->name}}</h4>
+                                     <h4>Date of Brith - {{ \Carbon\Carbon::parse($data->date_of_brith)->format('d-m-Y') }}</h4>
                                     <span>{{$data->position}}</span>
                                 </div>
                             </div>

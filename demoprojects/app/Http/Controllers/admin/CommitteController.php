@@ -52,16 +52,14 @@ class CommitteController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'position' => 'required',
-            'phone' => 'required|max:10',
-            'address' => 'required',
-           'image' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'phone' => 'nullable|max:10',
+           'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
         ]);
         $data = new CollegeConsulators();
              $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
+             $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;   
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
@@ -69,7 +67,7 @@ class CommitteController extends Controller
                 $thumbnail->storeAs('files/', $thumbnailName, 'public');
                 $data->image = "$var/files/$thumbnailName";
             }else{
-                unset($data->image);
+                $data->image = "";
             }  
             $data->save();
             return redirect()->back()->with('popup_success','CollegeConsulators added succesfully.');
@@ -92,9 +90,9 @@ class CommitteController extends Controller
         $data = CollegeConsulators::where('id',$id)->first();
         if($data){
              $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
+            $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;     
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
@@ -149,24 +147,22 @@ class CommitteController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'position' => 'required',
-            'phone' => 'required|max:10',
-            'address' => 'required',
-           'image' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'phone' => 'nullable|max:10',
+           'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
         ]);
         $data = new FinanceCommitte();
              $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
+            $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;   
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
                 $thumbnailName = date('YmdHis') . uniqid() . "." . $thumbnail->getClientOriginalExtension();
                 $thumbnail->storeAs('files/', $thumbnailName, 'public');
                 $data->image = "$var/files/$thumbnailName";
-            }else{
-                unset($data->image);
+              }else{
+                $data->image = "";
             }  
             $data->save();
             return redirect()->back()->with('popup_success','FinanceCommitte Table1 added succesfully.');
@@ -189,9 +185,9 @@ class CommitteController extends Controller
         $data = FinanceCommitte::where('id',$id)->first();
         if($data){
              $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
+              $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;   
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
@@ -238,24 +234,22 @@ class CommitteController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'position' => 'required',
-            'phone' => 'required|max:10',
-            'address' => 'required',
-           'image' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+         'phone' => 'nullable|max:10',
+           'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
         ]);
         $data = new FinanceCommitte1();
              $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
+             $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;    
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
                 $thumbnailName = date('YmdHis') . uniqid() . "." . $thumbnail->getClientOriginalExtension();
                 $thumbnail->storeAs('files/', $thumbnailName, 'public');
                 $data->image = "$var/files/$thumbnailName";
-            }else{
-                unset($data->image);
+             }else{
+                $data->image = "";
             }  
             $data->save();
             return redirect()->back()->with('popup_success','FinanceCommitte Table2 added succesfully.');
@@ -278,9 +272,9 @@ class CommitteController extends Controller
         $data = FinanceCommitte1::where('id',$id)->first();
         if($data){
              $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
+              $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;   
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
@@ -326,16 +320,14 @@ class CommitteController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'position' => 'required',
-            'phone' => 'required|max:10',
-            'address' => 'required',
-           'image' => 'required|image|mimes:jpeg,png,jpg|max:1024',
+            'phone' => 'nullable|max:10',
+           'image' => 'nullable|image|mimes:jpeg,png,jpg|max:1024',
         ]);
         $data = new FinanceCommitte2();
              $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
+              $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;    
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');
@@ -343,7 +335,7 @@ class CommitteController extends Controller
                 $thumbnail->storeAs('files/', $thumbnailName, 'public');
                 $data->image = "$var/files/$thumbnailName";
             }else{
-                unset($data->image);
+                $data->image = "";
             }  
             $data->save();
             return redirect()->back()->with('popup_success','FinanceCommitte Table3 added succesfully.');
@@ -366,9 +358,9 @@ class CommitteController extends Controller
         $data = FinanceCommitte2::where('id',$id)->first();
         if($data){
              $data->name = $request->name;
-             $data->position = $request->position;   
-             $data->address = $request->address;   
-             $data->phone = $request->phone;   
+            $data->position = $request->position ?? "";   
+             $data->address = $request->address ?? "";   
+             $data->phone = $request->phone ?? 0;     
             $var = 'storage/app/public/';
             if ($request->hasFile('image')) {
                 $thumbnail = $request->file('image');

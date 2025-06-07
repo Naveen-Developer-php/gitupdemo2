@@ -61,9 +61,8 @@
                                                 <tr> 
                                                     <th>S.No</th>
                                                     <th>Name</th>
-                                                    <th>Position</th>
-                                                    <th>Phone</th>
-                                                    <th>Email</th>
+                                                    <th>Date Of Birth</th>
+                                                    <th>Date of Ordination</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -74,9 +73,8 @@
                                                 <tr>
                                                    <td>{{$loop->iteration}}</td>
                                                     <td>{{$value->name}}</td>
+                                                    <td>{{ \Carbon\Carbon::parse($value->date_of_brith)->format('d-m-Y') }}</td>
                                                     <td>{{$value->position}}</td>
-                                                    <td>{{$value->phone}}</td>
-                                                    <td>{{$value->email}}</td>
                                                     <td> 
                                                             <a href="{{route('view_parish_priest',$value->id)}}"><button class="btn" style="background-color:#010046;"><i class="mdi mdi-eye" style="color: #ffffff;"></i></button></a>
                                                            <a href="javascript:void(0);" onclick="confirmDeleteAddress('{{ route('delete_parish_priest', $value->id) }}')"><button class="btn" style="background-color: #8B0000;"><i class="mdi mdi-trash-can-outline" style="color: #ffffff;"></i></button></a></td>

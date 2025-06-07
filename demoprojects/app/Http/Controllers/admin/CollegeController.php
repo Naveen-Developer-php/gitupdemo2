@@ -32,13 +32,11 @@ class CollegeController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'parish' => 'required',
-            'address' => 'required',
         ]);
         $data = new DiocesanCollege();
              $data->name = $request->name;
-             $data->parish = $request->parish;
-             $data->address = $request->address;   
+             $data->parish = $request->parish ?? "";
+             $data->address = $request->address ?? "";   
             $data->save();
             return redirect()->back()->with('popup_success','DiocesanCollege added succesfully.');
     }
@@ -56,8 +54,8 @@ class CollegeController extends Controller
         $data = DiocesanCollege::where('id',$id)->first();
         if($data){
              $data->name = $request->name;
-             $data->parish = $request->parish;
-             $data->address = $request->address;   
+            $data->parish = $request->parish ?? "";
+             $data->address = $request->address ?? "";   
             $data->save();
             return redirect()->back()->with('popup_success','DiocesanCollege updated succesfully.');
         }else{
@@ -90,13 +88,12 @@ class CollegeController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'parish' => 'required',
-            'address' => 'required',
+         
         ]);
         $data = new ReligiousCollege();
              $data->name = $request->name;
-             $data->parish = $request->parish;
-             $data->address = $request->address;   
+           $data->parish = $request->parish ?? "";
+             $data->address = $request->address ?? "";   
             $data->save();
             return redirect()->back()->with('popup_success','ReligiousCollege added succesfully.');
     }
@@ -114,8 +111,8 @@ class CollegeController extends Controller
         $data = ReligiousCollege::where('id',$id)->first();
         if($data){
              $data->name = $request->name;
-             $data->parish = $request->parish;
-             $data->address = $request->address;   
+           $data->parish = $request->parish ?? "";
+             $data->address = $request->address ?? "";   
             $data->save();
             return redirect()->back()->with('popup_success','ReligiousCollege updated succesfully.');
         }else{
@@ -148,13 +145,11 @@ class CollegeController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'management' => 'required',
-            'address' => 'required',
         ]);
         $data = new HomeAge();
              $data->name = $request->name;
-             $data->management = $request->management;
-             $data->address = $request->address;   
+             $data->management = $request->management ?? "";
+             $data->address = $request->address ?? "";   
             $data->save();
             return redirect()->back()->with('popup_success','HomeAge added succesfully.');
     }
@@ -172,8 +167,8 @@ class CollegeController extends Controller
         $data = HomeAge::where('id',$id)->first();
         if($data){
              $data->name = $request->name;
-             $data->management = $request->management;
-             $data->address = $request->address;   
+             $data->management = $request->management ?? "";
+             $data->address = $request->address ?? "";  
             $data->save();
             return redirect()->back()->with('popup_success','HomeAge updated succesfully.');
         }else{
@@ -205,14 +200,12 @@ class CollegeController extends Controller
     public function save_hospital(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'parish' => 'required',
-            'address' => 'required',
+            'name' => 'required'
         ]);
         $data = new Hospital();
              $data->name = $request->name;
-             $data->parish = $request->parish;
-             $data->address = $request->address;   
+             $data->parish = $request->parish ?? "";
+             $data->address = $request->address ?? "";   
             $data->save();
             return redirect()->back()->with('popup_success','Hospital added succesfully.');
     }
@@ -230,8 +223,8 @@ class CollegeController extends Controller
         $data = Hospital::where('id',$id)->first();
         if($data){
              $data->name = $request->name;
-             $data->parish = $request->parish;
-             $data->address = $request->address;   
+            $data->parish = $request->parish ?? "";
+             $data->address = $request->address ?? "";   
             $data->save();
             return redirect()->back()->with('popup_success','Hospital updated succesfully.');
         }else{

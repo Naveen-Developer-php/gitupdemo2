@@ -64,15 +64,15 @@
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3">
                                                         <input type="text" class="form-control" name="position" value="{{$data->position}}">
-                                                        <label for="floatingemailInput">Position</label>
+                                                        <label for="floatingemailInput">Date of Ordination</label>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="form-floating mb-2">
+                                            <!-- <div class="form-floating mb-2">
                                                 <textarea class="form-control" name="address" style="height: 100px">{{$data->address}}</textarea>
                                                 <label for="floatingTextarea">Address</label>
-                                              </div>
+                                              </div> -->
 
                                               <div class="row">
                                                 <div class="col-md-6">
@@ -84,11 +84,20 @@
                                                             <div style="color:red;">{{ $message }}</div>
                                                         @enderror
                                                 </div>
-                                                <div class="col-md-6">
+                                                <!-- <div class="col-md-6">
                                                     <div class="form-floating mb-3">
                                                         <input type="email" class="form-control" name="email" value="{{$data->email}}">
                                                         <label for="floatingemailInput">E-mail:</label>
                                                     </div>
+                                                </div> -->
+                                                 <div class="col-md-6">
+                                                    <div class="form-floating mb-3">
+                                                        <input type="date" class="form-control" name="date_of_brith" value="{{$data->date_of_brith}}">
+                                                        <label for="floatingemailInput">Date Of Birth</label>
+                                                    </div>
+                                                      @error('date_of_brith')
+                                                        <div style="color:red;">{{ $message }}</div>
+                                                    @enderror
                                                 </div>
                                             </div>
 
